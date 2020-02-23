@@ -1,0 +1,106 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context" xmlns:tx="http://www.springframework.org/schema/tx"
+       xmlns:mvc="http://www.springframework.org/schema/mvc"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd">
+
+    <context:component-scan base-package="ua.dziuhan"/>
+
+    <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+    <!-- <property name="prefix" value="/WEB-INF/"/>
+     <property name="suffix" value=".jsp"/> -->
+     </bean>
+
+ <!-- Database Information
+
+ <bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource"
+ <property name="url"
+           value="jdbc:mysql://localhost:3306/cars?serverTimezone=UTC"/
+     <property name="driverClassName" value="com.mysql.jdbc.Driver"/>
+     <property name="username" value="root"/>
+     <property name="password" value="farandi77"/>
+
+ -->
+    <bean id="dataSource" class="com.zaxxer.hikari.HikariDataSource"
+          destroy-method="close">
+        <property name="jdbcUrl" value="jdbc:mysql://localhost:3306/cars?serverTimezone=UTC"/>
+        <property name="driverClassName" value="com.mysql.jdbc.Driver"/>
+        <property name="username" value="root"/>
+        <property name="password" value="farandi77"/>
+
+    </bean>
+
+    <!-- Hibernate 4 SessionFactory Bean definition -->
+    <bean id="hibernate4AnnotatedSessionFactory"
+          class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
+        <property name="dataSource" ref="dataSource"/>
+        <property name="annotatedClasses">
+            <list>
+                <value>ua.dziuhan.entities.CarData</value>
+                <value>ua.dziuhan.entities.UserData</value>
+                <value>ua.dziuhan.entities.RoleData</value>
+                <value>ua.dziuhan.entities.OrderData</value>
+                <value>ua.dziuhan.entities.ReviewAboutCarData</value>
+
+            </list>
+        </property>
+        <property name="hibernateProperties">
+            <props>
+                <prop key="hibernate.dialect">org.hibernate.dialect.MySQLDialect
+                </prop>
+                <prop key="hibernate.show_sql">true</prop>
+            </props>
+        </property>
+    </bean>
+
+    <!--Dao and Service beans-->
+    <bean id="carDao" class="ua.dziuhan.dao.impl.CarDAOImpl">
+        <property name="sessionFactory" ref="hibernate4AnnotatedSessionFactory"/>
+    </bean>
+    <bean id="carService" class="ua.dziuhan.service.impl.CarServiceImpl">
+        <property name="carDAO" ref="carDao"/>
+    </bean>
+
+    <bean id="userDao" class="ua.dziuhan.dao.impl.UserDAOImpl">
+        <property name="sessionFactory" ref="hibernate4AnnotatedSessionFactory"/>
+    </bean>
+    <bean id="userService" class="ua.dziuhan.service.impl.UserServiceImpl">
+        <property name="userDAO" ref="userDao"/>
+        <property name="roleDAO" ref="roleDao"/>
+    </bean>
+
+    <bean id="orderDao" class="ua.dziuhan.dao.impl.OrderDAOImpl">
+        <property name="sessionFactory" ref="hibernate4AnnotatedSessionFactory"/>
+    </bean>
+    <bean id="orderService" class="ua.dziuhan.service.impl.OrderServiceImpl">
+        <property name="orderDAO" ref="orderDao"/>
+        <property name="userDAO" ref="userDao"/>
+        <property name="carDAO" ref="carDao"/>
+    </bean>
+
+    <bean id="reviewAboutCarDao" class="ua.dziuhan.dao.impl.ReviewAboutCarDAOImpl">
+        <property name="sessionFactory" ref="hibernate4AnnotatedSessionFactory"/>
+    </bean>
+    <bean id="reviewAboutCarService" class="ua.dziuhan.service.impl.ReviewAboutCarServiceImpl">
+        <property name="reviewAboutCarDAO" ref="reviewAboutCarDao"/>
+        <property name="userDAO" ref="userDao"/>
+        <property name="carDAO" ref="carDao"/>
+    </bean>
+
+    <bean id="roleDao" class="ua.dziuhan.dao.impl.RoleDAOImpl">
+        <property name="sessionFactory" ref="hibernate4AnnotatedSessionFactory"/>
+    </bean>
+
+    <context:component-scan base-package="ua.dziuhan"/>
+
+    <tx:annotation-driven transaction-manager="transactionManager"/>
+
+    <bean id="transactionManager" class="org.springframework.orm.hibernate4.HibernateTransactionManager">
+        <property name="sessionFactory" ref="hibernate4AnnotatedSessionFactory"/>
+    </bean>
+
+    <mvc:default-servlet-handler/>
+    <mvc:annotation-driven/>
+</beans>
