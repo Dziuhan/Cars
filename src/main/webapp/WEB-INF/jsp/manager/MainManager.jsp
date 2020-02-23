@@ -34,7 +34,7 @@
 			</form>
 
 			<form action="order_state=may close order" class="inline">
-				<input type="submit" value=" 1 <fmt:message key="Mayclocse"/>">
+				<input type="submit" value="  <fmt:message key="MayCloseOrders"/>">
 			</form>
 
 			<form action="order_state=closed order" class="inline">

@@ -51,6 +51,11 @@ public class AdminController {
         return "redirect:/client/";
     }
 
+    @RequestMapping(value = "/client")
+    public  String redirectToCar(){
+        return "redirect:/client/";
+    }
+
     @RequestMapping(value = "/logout")
     public String logout(HttpSession session) {
         session.invalidate();

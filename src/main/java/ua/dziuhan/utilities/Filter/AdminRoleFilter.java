@@ -25,13 +25,13 @@ public class AdminRoleFilter implements Filter {
 		HttpServletRequest req=(HttpServletRequest)request;
 		HttpServletResponse resp=(HttpServletResponse)response;
 		HttpSession session=req.getSession();
-		String role=(String) session.getAttribute("role");
+		String role=(String) session.getAttribute("user_role");
 		if(role==null){
-			resp.sendRedirect("ClientController");
+			resp.sendRedirect("client");
 		}else if(role.equals("admin")){
 			chain.doFilter(request, response);
 		}else{
-			resp.sendRedirect("ClientController");
+			resp.sendRedirect("client");
 		}
 	}
 

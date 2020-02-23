@@ -15,13 +15,6 @@
 		prefix="admin.">
 		<table>
 			<tr>
-				<td id="filterCArs">
-					<form action="AdminController">
-						<u:filter-cars />
-						<input type="hidden" name="commandAdmin" value="Filter"> <input
-							type="submit" value="<fmt:message key="Filter"/>">
-					</form>
-				</td>
 				<td id="tableCars">
 					<table>
 						<tr>
@@ -40,8 +33,7 @@
 								<td>${car.rank}</td>
 								<td>${car.year}</td>
 								<td>${car.price}</td>
-								<td><a
-									href="edit car idCar=${car.id} ">
+								<td><a	href="edit car idCar=${car.id} ">
 										<fmt:message key="Edit" />
 								</a></td>
 							</tr>

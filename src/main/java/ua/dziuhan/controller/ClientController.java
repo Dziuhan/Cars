@@ -176,6 +176,9 @@ import ua.dziuhan.service.UserService;
 			if (user.getPassword().equals(userFromDB.getPassword())) {
 				session.setAttribute("user_login", user.getLogin());
 				session.setAttribute("user_role",userFromDB.getRole().getRole());
+				if(userFromDB.isBan()) {
+					session.setAttribute("banned","banned");
+				}
 				return "redirect:cars";
 			} else {
 				model.addAttribute("messageForGuest", "invalid password");

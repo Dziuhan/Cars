@@ -38,7 +38,7 @@
 				<legend>
 					<fmt:message key="Rank" />
 				</legend>
-				<input name="rank" required="required" value="$" />
+				<input name="rank" required="required" value="" />
 			</fieldset>
 			<fieldset>
 				<legend>

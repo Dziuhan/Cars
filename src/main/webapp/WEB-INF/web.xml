@@ -19,4 +19,31 @@
 		<servlet-name>mvc-dispatcher</servlet-name>
 		<url-pattern>/</url-pattern>
 	</servlet-mapping>
+
+	<filter>
+		<filter-name>ban</filter-name>
+		<filter-class>ua.dziuhan.utilities.Filter.BanFilter</filter-class>
+	</filter>
+	<filter-mapping>
+		<filter-name>ban</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+
+	<filter>
+		<filter-name>managerRole</filter-name>
+		<filter-class>ua.dziuhan.utilities.Filter.ManagerRoleFilter</filter-class>
+	</filter>
+	<filter-mapping>
+		<filter-name>managerRole</filter-name>
+		<url-pattern>/manager/</url-pattern>
+	</filter-mapping>
+
+	<filter>
+		<filter-name>adminRole</filter-name>
+		<filter-class>ua.dziuhan.utilities.Filter.AdminRoleFilter</filter-class>
+	</filter>
+	<filter-mapping>
+		<filter-name>adminRole</filter-name>
+		<url-pattern>/admin/</url-pattern>
+	</filter-mapping>
 </web-app>

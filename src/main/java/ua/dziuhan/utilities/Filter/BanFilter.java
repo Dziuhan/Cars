@@ -10,6 +10,8 @@ import javax.servlet.ServletResponse;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import javax.servlet.jsp.PageContext;
+
 /**
  * Ban filter
  */
@@ -23,8 +25,8 @@ public class BanFilter implements Filter {
 		HttpServletRequest req=(HttpServletRequest)request;
 		HttpServletResponse resp=(HttpServletResponse)response;
 		HttpSession session=req.getSession();		
-		if(session.getAttribute("Banned")!=null){
-			resp.sendRedirect("Banned.jsp");
+		if(session.getAttribute("banned")!=null){
+			resp.sendRedirect("/Banned.jsp");
 		}else{
 			chain.doFilter(request, response);
 		}		
