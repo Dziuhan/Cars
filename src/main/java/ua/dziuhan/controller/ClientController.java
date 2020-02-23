@@ -176,6 +176,7 @@ import ua.dziuhan.service.UserService;
 			if (user.getPassword().equals(userFromDB.getPassword())) {
 				session.setAttribute("user_login", user.getLogin());
 				session.setAttribute("user_role",userFromDB.getRole().getRole());
+				session.setAttribute("currentDate",new Date(Calendar.getInstance().getTimeInMillis()));
 				if(userFromDB.isBan()) {
 					session.setAttribute("banned","banned");
 				}
