@@ -29,8 +29,37 @@ insert into cars(producer, make, rang, price, year, imageLocAdress) VALUES ('For
 insert into cars(producer, make, rang, price, year, imageLocAdress) VALUES ('Buick','ROADMASTER','B',288,1937,'1937 BUICK ROADMASTER.jpg');
 insert into cars(producer, make, rang, price, year, imageLocAdress) VALUES ('Mercedes-Benz','540 K','B',288,1937,'1937 Mercedes-Benz 540 K.jpg');
 insert into cars(producer, make, rang, price, year, imageLocAdress) VALUES ('Peugeot','402','B',222,1937,'1937 PEUGEOT 402.jpg');
-insert into cars(producer, make, rang, price, year, imageLocAdress) VALUES ('Mercedes-Benz','Pre-War','B',223,1938,'1938 Mercedes-Benz Pre-War.jpgg');
+insert into cars(producer, make, rang, price, year, imageLocAdress) VALUES ('Mercedes-Benz','Pre-War','B',223,1938,'1938 Mercedes-Benz Pre-War.jpg');
 insert into cars(producer, make, rang, price, year, imageLocAdress) VALUES ('Rolls-Royce','Phantom III','B',302,1938,'1938 Rolls-Royce Phantom III.jpg');
 insert into cars(producer, make, rang, price, year, imageLocAdress) VALUES ('Chevrolet','Master 85','B',285,1939,'1939 Chevrolet Master 85.jpg');
 insert into cars(producer, make, rang, price, year, imageLocAdress) VALUES ('Lancia','Aprilia','B',322,1939,'1939 Lancia Aprilia.jpg');
 insert into cars(producer, make, rang, price, year, imageLocAdress) VALUES ('Mercedes-Benz','Typ 320','B',332,1939,'1939 Mercedes-Benz Typ 320.jpg');
+
+insert into cars(producer, make, rang, price, year, imageLocAdress) VALUES ('Ford','COUPE','C',330,1940,'1940 FORD COUPE.jpg');
+insert into cars(producer, make, rang, price, year, imageLocAdress) VALUES ('Rolls-Royce','Silver Wraith','B',331,1947,'1947 Rolls-Royce Silver Wraith.jpg');
+insert into cars(producer, make, rang, price, year, imageLocAdress) VALUES ('MG','TC','C',340,1948,'1948 MG TC.jpg');
+insert into cars(producer, make, rang, price, year, imageLocAdress) VALUES ('Peugeot','203','C',423,1949,'1949 Peugeot 203.jpg');
+insert into cars(producer, make, rang, price, year, imageLocAdress) VALUES ('GMG','Jaguar','C',350,1950,'1950 GMG Jaguar.jpg');
+insert into cars(producer, make, rang, price, year, imageLocAdress) VALUES ('MG','TD','C',350,1951,'1951 MG TD.jpg');
+insert into cars(producer, make, rang, price, year, imageLocAdress) VALUES ('Rolls-Royce','Silver Dawn','C',350,1951,'1951 Rolls Royce Silver Dawn.jpg');
+insert into cars(producer, make, rang, price, year, imageLocAdress) VALUES ('MG','TD REPLICA','C',33,1952,'1952 MG TD REPLICA.jpg');
+insert into cars(producer, make, rang, price, year, imageLocAdress) VALUES ('MG','MGTD','C',503,1953,'1953 MG MGTD.jpg');
+insert into cars(producer, make, rang, price, year, imageLocAdress) VALUES ('Austin','A30','C',360,1954,'1954 Austin A30.jpg');
+insert into cars(producer, make, rang, price, year, imageLocAdress) VALUES ('MG','TF','C',360,1954,'1954 MG TF.jpg');
+insert into cars(producer, make, rang, price, year, imageLocAdress) VALUES ('Austin','HEALEY 100','C',400,1955,'1955 AUSTIN-HEALEY 100.jpg');
+insert into cars(producer, make, rang, price, year, imageLocAdress) VALUES ('Lancia','Aurelia','C',33,1955,'1955 Lancia Aurelia.jpg');
+insert into cars(producer, make, rang, price, year, imageLocAdress) VALUES ('Mercedes-Benz','220','C',400,1955,'1955 Mercedes-Benz 220.jpg');
+insert into cars(producer, make, rang, price, year, imageLocAdress) VALUES ('Mercedes-Benz','300 SL','C',330,1957,'1957 Mercedes-Benz 300 SL.jpg');
+insert into cars(producer, make, rang, price, year, imageLocAdress) VALUES ('Chevrolet','CORVETTE','C',401,1959,'1959 CHEVROLET CORVETTE.jpg');
+insert into cars(producer, make, rang, price, year, imageLocAdress) VALUES ('Chevrolet','IMPALA','C',400,1959,'1959 CHEVROLET IMPALA.jpg');
+insert into cars(producer, make, rang, price, year, imageLocAdress) VALUES ('Mercedes-Benz','SL 190','C',402,1959,'1959 Mercedes-Benz SL 190.jpg');
+insert into cars(producer, make, rang, price, year, imageLocAdress) VALUES ('Mercedes-Benz','190SL','C',410,1959,'1959 MERCEDES-BENZ 190SL.jpg');
+insert into cars(producer, make, rang, price, year, imageLocAdress) VALUES ('MG','A','C',400,1959,'1959 MG A.jpg');
+insert into cars(producer, make, rang, price, year, imageLocAdress) VALUES ('Rolls-Royce','SILVER CLOUD II','D',410,1960,'1960 ROLLS-ROYCE SILVER CLOUD II.jpg');
+insert into cars(producer, make, rang, price, year, imageLocAdress) VALUES ('Rolls-Royce','Silver Cloud II','D',400,1961,'1961 Rolls-Royce Silver Cloud II.jpg');
+insert into cars(producer, make, rang, price, year, imageLocAdress) VALUES ('Porsche','356','D',410,1962,'1962 Porsche 356.jpg');
+insert into cars(producer, make, rang, price, year, imageLocAdress) VALUES ('Chevrolet','Chevelle','D',420,1964,'1964 Chevrolet Chevelle.jpg')
+insert into cars(producer, make, rang, price, year, imageLocAdress) VALUES ('Ford','Cortina Lotus','D',403,1964,'1964 Ford Cortina Lotus.jpg');
+insert into cars(producer, make, rang, price, year, imageLocAdress) VALUES ('Jaguar','XKE','D',420,1965,'1965 Jaguar XKE.jpg');
+insert into cars(producer, make, rang, price, year, imageLocAdress) VALUES ('Chevrolet','CORVETTE','D',430,1967,'1967 CHEVROLET CORVETTE.jpg');
+insert into cars(producer, make, rang, price, year, imageLocAdress) VALUES ('Morgan','4','D',33,1968,'1968 Morgan 4.jpg');
