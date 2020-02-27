@@ -21,7 +21,7 @@
 				<td id="sorterCars">
 					<form name="sorter" action="sorterCars"
 						method="get">
-						<input type="hidden" name="cars" value=${cars}>
+
 						<fmt:message key="SortBy" />
 						<select name="sortCarsBy" onchange="sorter.submit()">
 
