@@ -11,7 +11,7 @@
 <body id="Banned">
 	<h1 class="center">
 		This account banned <a
-			href="ClientController?command=Logout"> Logout</a>
+			href="${pageContext.request.contextPath}/client/logout"> Logout</a>
 	</h1>
 
 </body>

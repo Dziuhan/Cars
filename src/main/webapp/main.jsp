@@ -25,21 +25,18 @@
 						<select name="sortCarsBy" onchange="sorter.submit()">
 
 							<option><c:if test="${not empty sortCarsBy}">
-									<fmt:message key="${sortCarsBy}" />
-								</c:if>
+										<fmt:message key="${sortCarsBy}" />
+									</c:if>
 							</option>
 							<optgroup label="Choose sort:"></optgroup>
 							<option value="byProducer"><fmt:message key="byProducer" /></option>
-							<option value="byProducerReverse"><fmt:message
-									key="byProducerReverse" /></option>
+							<option value="byProducerReverse"><fmt:message	key="byProducerReverse" /></option>
 							<option value="byPrice"><fmt:message key="byPrice" /></option>
-							<option value="byPriceReverse"><fmt:message
-									key="byPriceReverse" /></option>
+							<option value="byPriceReverse"><fmt:message	key="byPriceReverse" /></option>
 							<option value="byRank"><fmt:message key="byRank" /></option>
-							<option value="byRankReverse"><fmt:message
-									key="byRankReverse" /></option>
+							<option value="byRankReverse"><fmt:message key="byRankReverse" /></option>
 						</select>
-						<a	href="${pageContext.request.contextPath}/client/viewTemplateCars=table"><fmt:message	key="Table" /> </a>
+						<a	href="${pageContext.request.contextPath}/client/viewTemplateCars=table"><fmt:message key="Table" /> </a>
 						<a	href="${pageContext.request.contextPath}/client/viewTemplateCars=list"><fmt:message	key="List" /> </a>
 						<a	href="${pageContext.request.contextPath}/client/viewTemplateCars=Tile"><fmt:message	key="Tile" /> </a>
 					</form>

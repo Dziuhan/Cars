@@ -20,7 +20,7 @@
 		<div
 			style="background: url('${pageContext.request.contextPath}/picture/l_picture/${chooseCar.imageLocAdress}') no-repeat 100%;background-size: 100%;width:avto; height: 100%;">
 			<div id="order">
-				<form action="make_order" name="order">
+				<form action="${pageContext.request.contextPath}/client/make_order" name="order" method="post">
 					<div>${chooseCar.producer}${chooseCar.make}</div>
 					<div>
 						<fmt:message key="Rank" />
