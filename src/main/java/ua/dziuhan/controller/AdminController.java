@@ -14,7 +14,7 @@ import ua.dziuhan.service.UserService;
 import javax.servlet.http.HttpSession;
 
 @Controller()
-@RequestMapping(value = "/admin")
+@RequestMapping("/admin")
 public class AdminController {
     UserService userService;
 
@@ -35,33 +35,6 @@ public class AdminController {
         model.addAttribute("cars",carService.selectAllCars());
         return "/WEB-INF/jsp/admin/MainAdmin.jsp";
     }
-
-    @RequestMapping(value = "/manager")
-    public String redirectToManager(){
-        return "redirect:/manager/";
-    }
-
-    @RequestMapping(value = "/admin")
-    public String redirectToAdmin(){
-        return "redirect:/admin/";
-    }
-
-    @RequestMapping(value = "/cars")
-    public  String redirectToCars(){
-        return "redirect:/client/";
-    }
-
-    @RequestMapping(value = "/client")
-    public  String redirectToCar(){
-        return "redirect:/client/";
-    }
-
-    @RequestMapping(value = "/logout")
-    public String logout(HttpSession session) {
-        session.invalidate();
-        return "redirect:/client/";
-    }
-
 
     @RequestMapping(value = "/viewAllUsersAdmin")
     public String viewAllUsersAdmin(Model model){
