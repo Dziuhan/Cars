@@ -15,12 +15,8 @@
 		</tr>
 		<c:forEach items="${producers}" var="producer">
 			<tr class="color">
-				<td><c:set var="producerForCheck"
-						value="${fn:split(', ,',' ')}">
-					</c:set> <c:set var="producerForCheck"
-						value="${fn:join(producerForCheck,producer)}">
-					</c:set> <c:choose>
-						<c:when test="${fn:contains(producersForJsp,producerForCheck)}">
+				<td><c:choose>
+						<c:when test="${fn:contains(producersForJsp,producer)}">
 							<c:set value="checked" var="check" />
 						</c:when>
 						<c:otherwise>
@@ -38,16 +34,17 @@
 		</tr>
 		<c:forEach items="${ranks}" var="rank">
 			<tr class="color">
-				<td><c:set var="rankForCheck" value="${fn:split(', ,',' ')}">
-					</c:set> <c:set var="rankForCheck" value="${fn:join(rankForCheck,rank)}">
-					</c:set> <c:choose>
-						<c:when test="${fn:contains(ranksForJsp,rankForCheck)}">
+				<td>
+					<c:choose>
+						<c:when test="${fn:contains(ranksForJsp,rank)}">
 							<c:set value="checked" var="check" />
 						</c:when>
 						<c:otherwise>
 							<c:set value="" var="check" />
 						</c:otherwise>
-					</c:choose> <input name="rankFilter" type="checkbox" ${check} value="${rank}"><a>${rank}</a></td>
+					</c:choose>
+					<input name="rankFilter" type="checkbox" ${check} value="${rank}"><a>${rank}</a>
+				</td>
 			</tr>
 		</c:forEach>
 	</table>
