@@ -132,16 +132,16 @@ import ua.dziuhan.service.UserService;
 	}
 	// Post
 	@RequestMapping("/payOrderById={id_order}")
-	public String payOrder(@PathVariable("id_order") int id){
+	public String payOrder(@PathVariable("id_order") int id,HttpSession session){
 		OrderData order=orderService.selectOrderById(id);
-		orderService.updateStateOrder(order,"paid order");
+		if(order!=null && order.getUserData().getLogin().equals(session.getAttribute("user_login"))){
+            orderService.updateStateOrder(order,"paid order");
+        }
 		return "redirect:cabinet_user";
-
 	}
 
 	@RequestMapping("/make_order")
 	public String makeOrder(@ModelAttribute("order") OrderData orderData, HttpServletRequest request, HttpSession session, Model model) {
-		//System.out.println(orderData);
 		int idCar = Integer.parseInt(request.getParameter("idCar"));
 		String login = (String) session.getAttribute("user_login");
 		if (login == null) {
