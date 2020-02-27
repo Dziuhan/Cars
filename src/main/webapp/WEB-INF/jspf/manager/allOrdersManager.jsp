@@ -26,7 +26,6 @@
 						<th><fmt:message key="End" /></th>
 						<th><fmt:message key="Driver" /></th>
 						<th><fmt:message key="PriceOrder" /></th>
-						<th><fmt:message key="PriceCrush" /></th>
 						<th><fmt:message key="State" /></th>
 					</tr>
 					<c:forEach items="${orders}" var="order">
@@ -37,7 +36,6 @@
 							<td>${order.finishRent}</td>
 							<td>${order.driver}</td>
 							<td>${order.priceTotal}</td>
-							<td>${order.priceCrush}</td>
 							<td>${order.state}</td>
 						</tr>
 					</c:forEach>
