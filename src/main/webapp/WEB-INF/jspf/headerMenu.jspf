@@ -11,10 +11,10 @@
 		prefix="header.">
 		<div id="Header">
 			<div id="leftHeader">
-				<a href="cars"> <fmt:message key="cars" /></a>
+				<a href="${pageContext.request.contextPath}/client/cars"> <fmt:message key="cars" /></a>
 
 				<c:if test="${user_role=='manager'}">
-					<a href="manager/"><fmt:message key="Manager" /></a>
+					<a href="${pageContext.request.contextPath}/manager/"><fmt:message key="Manager" /></a>
 				</c:if>
 
 				<c:if test="${user_role=='admin'}">
