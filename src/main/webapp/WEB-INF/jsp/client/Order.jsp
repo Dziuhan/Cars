@@ -7,7 +7,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Car order</title>
 <link rel="stylesheet" type="text/css" media="screen"
-	href="style/all.css" />
+	  href="${pageContext.request.contextPath}/style/all.css" />
 </head>
 <body>
 	<%@ include file="/WEB-INF/jspf/headerMenu.jspf"%>

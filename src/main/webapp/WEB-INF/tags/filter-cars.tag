@@ -3,7 +3,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <link rel="stylesheet" type="text/css" media="screen"
-	href="style/all.css" />
+	  href="${pageContext.request.contextPath}/style/all.css" />
 <fmt:setLocale value="${locale}" />
 <fmt:bundle
 	basename="ua.dziuhan.utilities.ResourceBundle.Page"
