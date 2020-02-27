@@ -130,7 +130,7 @@ import ua.dziuhan.service.UserService;
 		model.addAttribute("ordersClient", orderService.selectAllOrdersByLogin(login));
 		return "/WEB-INF/jsp/client/CabinetClient.jsp";
 	}
-
+	// Post
 	@RequestMapping("/payOrderById={id_order}")
 	public String payOrder(@PathVariable("id_order") int id){
 		OrderData order=orderService.selectOrderById(id);
@@ -152,8 +152,6 @@ import ua.dziuhan.service.UserService;
 		orderService.addOrder(orderData, login, idCar);
 		return "redirect:cars";
 	}
-
-	// Post
 
 	@RequestMapping("/login")
 	public String loginRegistration(@ModelAttribute("user") UserData user, Model model, HttpSession session) {
@@ -240,23 +238,6 @@ import ua.dziuhan.service.UserService;
 			Collections.addAll(ranksForJsp, ranks);
 			session.setAttribute("ranksForJsp", ranksForJsp.toString());
 		}
-
-		/*if(producers!=null){
-			StringBuilder producersForJsp=new StringBuilder();
-			for(String s:producers){
-				producersForJsp.append(","+s+",");
-			}
-			//System.out.println(producersForJsp.toString());
-			session.setAttribute("producersForJsp", producersForJsp.toString());
-		}
-		if(ranks!=null){
-			StringBuilder ranksForJsp=new StringBuilder();
-			for(String s:ranks){
-				ranksForJsp.append(","+s+",");
-			}
-			//System.out.println(ranksForJsp);
-			session.setAttribute("ranksForJsp", ranksForJsp.toString());
-		}*/
 		session.setAttribute("indexPage",1);
 		return "redirect:cars";
 	}
