@@ -36,7 +36,7 @@
 						<a href="${pageContext.request.contextPath}/client/logout"><fmt:message key="Logout" /> </a>
 					</c:when>
 					<c:otherwise>
-						<form name="user" action="${pageContext.request.contextPath}/client/login">
+						<form name="user" action="${pageContext.request.contextPath}/client/login" method="post">
 							<b id="messageForGuest">${messageForGuest} </b>
 							<a href="changeLanguage=ru">
 								<img alt="ru" src="${pageContext.request.contextPath}/picture/ruFlag.jpg">
