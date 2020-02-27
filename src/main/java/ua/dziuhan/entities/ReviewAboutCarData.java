@@ -7,7 +7,6 @@ import java.sql.Date;
 @Entity
 @Table(name = "reviewscars")
 public class ReviewAboutCarData implements Serializable {
-	private static final long serialVersionUID = 22L;
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -25,6 +24,14 @@ public class ReviewAboutCarData implements Serializable {
 
 	private String review;
 
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
 	public UserData getUserData() {
 		return userData;
 	}
@@ -41,23 +48,18 @@ public class ReviewAboutCarData implements Serializable {
 		this.carData = carData;
 	}
 
-	public int getId() {
-		return id;
-	}
-	public void setId(int id) {
-		this.id = id;
-	}
-
 	public Date getDateReview() {
 		return dateReview;
 	}
+
 	public void setDateReview(Date dateReview) {
 		this.dateReview = dateReview;
 	}
-	
+
 	public String getReview() {
 		return review;
 	}
+
 	public void setReview(String review) {
 		this.review = review;
 	}

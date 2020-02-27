@@ -28,19 +28,13 @@ public class CarData implements Serializable{
 
 	private boolean active; // Fix, not used
 
-	@OneToMany(fetch = FetchType.LAZY,mappedBy = "carData") //   ?????????????
-	private Set<ReviewAboutCarData> reviewAboutCarDataSet;
-
-	public Set<ReviewAboutCarData> getReviewAboutCarDataSet() {
-		return reviewAboutCarDataSet;
-	}
-	public void setReviewAboutCarDataSet(Set<ReviewAboutCarData> reviewAboutCarDataSet) {
-		this.reviewAboutCarDataSet = reviewAboutCarDataSet;
-	}
+	/*@OneToMany(fetch = FetchType.LAZY,mappedBy = "carData") //   ?????????????
+	private Set<ReviewAboutCarData> reviewAboutCarDataSet;*/
 
 	public int getId() {
 		return id;
 	}
+
 	public void setId(int id) {
 		this.id = id;
 	}
@@ -48,6 +42,7 @@ public class CarData implements Serializable{
 	public String getProducer() {
 		return producer;
 	}
+
 	public void setProducer(String producer) {
 		this.producer = producer;
 	}
@@ -55,6 +50,7 @@ public class CarData implements Serializable{
 	public String getMake() {
 		return make;
 	}
+
 	public void setMake(String make) {
 		this.make = make;
 	}
@@ -62,6 +58,7 @@ public class CarData implements Serializable{
 	public String getRank() {
 		return rank;
 	}
+
 	public void setRank(String rank) {
 		this.rank = rank;
 	}
@@ -69,6 +66,7 @@ public class CarData implements Serializable{
 	public int getYear() {
 		return year;
 	}
+
 	public void setYear(int year) {
 		this.year = year;
 	}
@@ -76,6 +74,7 @@ public class CarData implements Serializable{
 	public double getPrice() {
 		return price;
 	}
+
 	public void setPrice(double price) {
 		this.price = price;
 	}
@@ -83,6 +82,7 @@ public class CarData implements Serializable{
 	public String getImageLocAdress() {
 		return imageLocAdress;
 	}
+
 	public void setImageLocAdress(String imageLocAdress) {
 		this.imageLocAdress = imageLocAdress;
 	}
@@ -90,15 +90,22 @@ public class CarData implements Serializable{
 	public boolean isActive() {
 		return active;
 	}
+
 	public void setActive(boolean active) {
 		this.active = active;
 	}
 
 	@Override
 	public String toString() {
-		return "Car [id=" + id + ", producer=" + producer + ", make=" + make
-				+ ", rank=" + rank + ", year=" + year + ", price=" + price
-				+ ", imageLocAdress=" + imageLocAdress + "]";
+		return "CarData{" +
+				"id=" + id +
+				", producer='" + producer + '\'' +
+				", make='" + make + '\'' +
+				", rank='" + rank + '\'' +
+				", year=" + year +
+				", price=" + price +
+				", imageLocAdress='" + imageLocAdress + '\'' +
+				", active=" + active +
+				'}';
 	}
-
 }

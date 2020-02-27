@@ -1,4 +1,5 @@
 package ua.dziuhan.entities;
+
 import javax.persistence.*;
 
 @Entity
@@ -8,11 +9,14 @@ public class RoleData {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
+
     private String role;
 
     public int getId() {
+
         return id;
     }
+
     public void setId(int id) {
         this.id = id;
     }
@@ -20,13 +24,14 @@ public class RoleData {
     public String getRole() {
         return role;
     }
+
     public void setRole(String role) {
         this.role = role;
     }
 
     @Override
     public String toString() {
-        return "Role{" +
+        return "RoleData{" +
                 "id=" + id +
                 ", role='" + role + '\'' +
                 '}';
