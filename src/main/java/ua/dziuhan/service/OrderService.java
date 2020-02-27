@@ -14,7 +14,7 @@ public interface OrderService {
 
     List<OrderData> selectOrdersByState(String state);
 
-    void updateStateOrder(OrderData order, String accept_order);
+    void updateStateOrder(OrderData order, String state);
 
     OrderData selectOrderById(int id);
 
