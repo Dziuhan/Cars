@@ -19,8 +19,7 @@
 			<tr>
 				<th></th>
 				<td id="sorterCars">
-					<form name="sorter" action="sorterCars"
-						method="get">
+					<form name="sorter" action="${pageContext.request.contextPath}/client/sorterCars">
 
 						<fmt:message key="SortBy" />
 						<select name="sortCarsBy" onchange="sorter.submit()">
@@ -40,23 +39,18 @@
 							<option value="byRankReverse"><fmt:message
 									key="byRankReverse" /></option>
 						</select>
-						<input type="hidden" name="command" value="Sort"> <a
-							href="viewTemplateCars=table"><fmt:message
-								key="Table" /> </a> <a
-							href="viewTemplateCars=list"><fmt:message
-								key="List" /> </a> <a
-							href="viewTemplateCars=Tile"><fmt:message
-								key="Tile" /> </a>
+						<a	href="${pageContext.request.contextPath}/client/viewTemplateCars=table"><fmt:message	key="Table" /> </a>
+						<a	href="${pageContext.request.contextPath}/client/viewTemplateCars=list"><fmt:message	key="List" /> </a>
+						<a	href="${pageContext.request.contextPath}/client/viewTemplateCars=Tile"><fmt:message	key="Tile" /> </a>
 					</form>
 				</td>
 			</tr>
 
 			<tr>
 				<td id="filterCars">
-					<form action="filterCars" class="center">
+					<form action="${pageContext.request.contextPath}/client/filterCars" class="center">
 						<u:filter-cars></u:filter-cars>
-						<input type="hidden" name="command" value="Filter"> <input
-							type="submit" value="<fmt:message key="Filter"/>">
+						<input	type="submit" value="<fmt:message key="Filter"/>">
 					</form>
 
 				</td>
