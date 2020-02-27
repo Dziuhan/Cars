@@ -18,8 +18,8 @@
 				</c:if>
 
 				<c:if test="${user_role=='admin'}">
-					<a href="manager/"><fmt:message key="Manager" /></a>
-					<a href="admin/"><fmt:message key="Administrator" /></a>
+					<a href="${pageContext.request.contextPath}/manager/"><fmt:message key="Manager" /></a>
+					<a href="${pageContext.request.contextPath}/admin/"><fmt:message key="Administrator" /></a>
 				</c:if>
 			</div>
 
@@ -32,11 +32,11 @@
 						<a href="changeLanguage=en">
 							<img alt="en" src="${pageContext.request.contextPath}/picture/enFlag.jpg">
 						</a>
-						<a href="cabinet_user"> ${user_login} </a>
-						<a href="logout"><fmt:message key="Logout" /> </a>
+						<a href="${pageContext.request.contextPath}/client/cabinet_user"> ${user_login} </a>
+						<a href="${pageContext.request.contextPath}/client/logout"><fmt:message key="Logout" /> </a>
 					</c:when>
 					<c:otherwise>
-						<form name="user" action="login">
+						<form name="user" action="${pageContext.request.contextPath}/client/login">
 							<b id="messageForGuest">${messageForGuest} </b>
 							<a href="changeLanguage=ru">
 								<img alt="ru" src="${pageContext.request.contextPath}/picture/ruFlag.jpg">
