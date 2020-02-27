@@ -1,8 +1,7 @@
 package ua.dziuhan.controller;
 
 import java.sql.Date;
-import java.util.Calendar;
-import java.util.List;
+import java.util.*;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
@@ -10,9 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import ua.dziuhan.controller.Util.Sorter;
 import ua.dziuhan.entities.CarData;
@@ -63,7 +60,7 @@ import ua.dziuhan.service.UserService;
 		this.reviewAboutCarService = reviewAboutCarService;
 	}
 
-	@RequestMapping(value = "/")
+	@RequestMapping("/")
 	public String main(Model model) {
 		model.addAttribute("cars", carService.selectAllCars());
 		model.addAttribute("producers", carService.selectAllProducersCar());
@@ -71,7 +68,7 @@ import ua.dziuhan.service.UserService;
 		return "/main.jsp";
 	}
 
-	@RequestMapping(value = "cars")
+	@RequestMapping("/cars")
 	public String cars(Model model,HttpSession session) {
 		model.addAttribute("producers", carService.selectAllProducersCar());
 		model.addAttribute("ranks", carService.selectAllRanksCar());
@@ -88,36 +85,34 @@ import ua.dziuhan.service.UserService;
 		if(sortCarsBy!=null) {
 			Sorter.sortCars(cars,sortCarsBy );
 		}
-
-
 		model.addAttribute("cars", cars);
 		return "/main.jsp";
 	}
 
-	@RequestMapping(value = "/manager")
+	@RequestMapping("/manager")
 	public String redirectToManager(){
 		return "redirect:/manager/";
 	}
 
-	@RequestMapping(value = "/admin")
+	@RequestMapping("/admin")
 	public String redirectToAdmin(){
 		return "redirect:/admin/";
 	}
 
-	@RequestMapping(value = "changeLanguage={locale}")
+	@RequestMapping( "changeLanguage={locale}")
 	public String changeLanguage(@PathVariable("locale")String locale,HttpSession session){
 		session.setAttribute("locale",locale);
 		return "redirect:/client/";
 	}
 
-	@RequestMapping(value = "/car{id}")
+	@RequestMapping("/car{id}")
 	public String chooseCar(@PathVariable("id") int id_car, Model model) {
 		CarData car = carService.selectCarById(id_car);
 		model.addAttribute("chooseCar", car);
 		return "/WEB-INF/jsp/client/Order.jsp";
 	}
 
-	@RequestMapping(value = "/ReviewsCar_Id={id}")
+	@RequestMapping("/ReviewsCar_Id={id}")
 	public String reviewsCar(@PathVariable("id") int id_car, Model model) {
 		CarData car = carService.selectCarById(id_car);
 		model.addAttribute(("idCar"), id_car);
@@ -126,7 +121,7 @@ import ua.dziuhan.service.UserService;
 		return "/WEB-INF/jsp/client/ReviewsAboutCar.jsp";
 	}
 
-	@RequestMapping(value = "/cabinet_user")
+	@RequestMapping("/cabinet_user")
 	public String cabinetUser(Model model, HttpSession session) {
 		String login = (String) session.getAttribute("user_login");
 		if (login == null) {
@@ -136,7 +131,7 @@ import ua.dziuhan.service.UserService;
 		return "/WEB-INF/jsp/client/CabinetClient.jsp";
 	}
 
-	@RequestMapping(value = "/payOrderById={id_order}")
+	@RequestMapping("/payOrderById={id_order}")
 	public String payOrder(@PathVariable("id_order") int id){
 		OrderData order=orderService.selectOrderById(id);
 		orderService.updateStateOrder(order,"paid order");
@@ -144,14 +139,7 @@ import ua.dziuhan.service.UserService;
 
 	}
 
-	@RequestMapping(value = "/cars/cabinet_user/history")
-	public String cabinetHistoryUser(Model model) {         //  fix
-		//UserData userData = (UserData) model.getAttribute("user");
-		//model.addAttribute("ordersClient", orderService.selectAllOrdersByLogin(userData));
-		return "/WEB-INF/jsp/client/CabinetClient.jsp";
-	}
-
-	@RequestMapping(value = "/make_order")
+	@RequestMapping("/make_order")
 	public String makeOrder(@ModelAttribute("order") OrderData orderData, HttpServletRequest request, HttpSession session, Model model) {
 		//System.out.println(orderData);
 		int idCar = Integer.parseInt(request.getParameter("idCar"));
@@ -165,10 +153,9 @@ import ua.dziuhan.service.UserService;
 		return "redirect:cars";
 	}
 
-
 	// Post
 
-	@RequestMapping(value = "/login")
+	@RequestMapping("/login")
 	public String loginRegistration(@ModelAttribute("user") UserData user, Model model, HttpSession session) {
 		UserData userFromDB = userService.selectUserByLogin(user);
 
@@ -194,20 +181,20 @@ import ua.dziuhan.service.UserService;
 		return "redirect:cars";
 	}
 
-	@RequestMapping(value = "/logout")
+	@RequestMapping("/logout")
 	public String logout(HttpSession session) {
 		//session.removeAttribute("user_login");
 		session.invalidate();
 		return "redirect:cars";
 	}
 
-	@RequestMapping(value = "/viewTemplateCars={viewTemplate}")
+	@RequestMapping("/viewTemplateCars={viewTemplate}")
 	public String changeViewTemplateCars(@PathVariable("viewTemplate") String viewTemplate, HttpSession session) {
 		session.setAttribute("viewTemplateCars", viewTemplate);
 		return "redirect:cars";
 	}
 
-	@RequestMapping(value = "/addReviewAboutCar")
+	@RequestMapping("/addReviewAboutCar")
 	public String makeReviewAboutCar(@ModelAttribute("reviewAboutCarData") ReviewAboutCarData reviewAboutCarData, Model model, HttpSession session, HttpServletRequest request) {
 		reviewAboutCarData.setDateReview(new Date(Calendar.getInstance().getTimeInMillis()));
 		int idCar = Integer.parseInt(request.getParameter("idCar"));
@@ -222,7 +209,7 @@ import ua.dziuhan.service.UserService;
 
 	}
 
-	@RequestMapping(value = "/sorterCars")
+	@RequestMapping("/sorterCars")
 	public String sorterCars(HttpServletRequest request,HttpSession session) {
 		String sortCarsBy= request.getParameter("sortCarsBy");
 		if(sortCarsBy!=null) {
@@ -231,7 +218,7 @@ import ua.dziuhan.service.UserService;
 		return "redirect:cars";
 	}
 
-	@RequestMapping(value = "/filterCars")
+	@RequestMapping("/filterCars")
 	public String filterCars(HttpServletRequest request,HttpSession session){
 
 		String[] producers = request.getParameterValues("producerFilter");
@@ -244,6 +231,17 @@ import ua.dziuhan.service.UserService;
 		session.removeAttribute("ranksForJsp");
 
 		if(producers!=null){
+			List<String> producersForJsp=new ArrayList<>();
+			Collections.addAll(producersForJsp, producers);
+			session.setAttribute("producersForJsp", producersForJsp);
+		}
+		if(ranks!=null){
+			List<String> ranksForJsp=new ArrayList<>();
+			Collections.addAll(ranksForJsp, ranks);
+			session.setAttribute("ranksForJsp", ranksForJsp.toString());
+		}
+
+		/*if(producers!=null){
 			StringBuilder producersForJsp=new StringBuilder();
 			for(String s:producers){
 				producersForJsp.append(","+s+",");
@@ -258,15 +256,14 @@ import ua.dziuhan.service.UserService;
 			}
 			//System.out.println(ranksForJsp);
 			session.setAttribute("ranksForJsp", ranksForJsp.toString());
-		}
+		}*/
 		session.setAttribute("indexPage",1);
 		return "redirect:cars";
 	}
 
-	@RequestMapping(value = "/changePageView={indexPage}")
+	@RequestMapping("/changePageView={indexPage}")
 	public String changePageView(@PathVariable(value = "indexPage") int indexPage,HttpSession session){
 		session.setAttribute("indexPage",indexPage);
 		return "redirect:cars";
-
 	}
 }
